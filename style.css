@@ -84,7 +84,7 @@ body {
     display: block;
     width: 100%;
     height: 100%;
-    padding: 60px 20px 20px;
+    padding: 60px 30px 30px;
 
     font-family: 'Roboto', sans-serif;
     font-size: 1em;
@@ -104,4 +104,114 @@ body {
     color: var(--text-grey-dark);
 
     background-color: var(--bg-grey-light);
+}
+
+
+/* Settings */
+
+@keyframes button-to-blackout {
+    from {
+        width: 50px;
+        height: 50px;
+        background: var(--background-light-blue);
+    }
+    to {
+        width: 150vw;
+        height: 150vw;
+        background: rgba(0, 0, 0, .7);
+    }
+}
+
+@keyframes blackout-to-button {
+    from {
+        width: 150vw;
+        height: 150vw;
+        background: rgba(0, 0, 0, .7);
+        box-shadow: 0 0 0 black;
+    }
+    to {
+        width: 50px;
+        height: 50px;
+        background: var(--background-light-blue);
+        box-shadow: 0 0 0 black;
+    }
+}
+
+.settings-button,
+.settings-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.settings-button {
+    z-index: 2;
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+    background-color: var(--bg-blue-light);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .7);
+    cursor: pointer;
+    transition: all .5s,
+                box-shadow .1s .4s;
+}
+
+.settings-button + .icon {
+    z-index: 3;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% - 7px));
+
+    font-size: 30px;
+    color: var(--text-white);
+
+    pointer-events: none;
+
+    transition: opacity .3s;
+}
+
+.settings-button.-blackout + .icon {
+    opacity: 0;
+}
+
+.settings-button.-blackout {
+    width: 300vh;
+    height: 300vh;
+
+    background-color: rgba(0, 0, 0, .7);
+    box-shadow: none;
+}
+
+.settings-form {
+    width: 300px;
+    height: 150px;
+
+    background: var(--bg-grey-light);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .3);
+    opacity: 0;
+    transition: opacity .5s;
+}
+
+.settings-form.-visible {
+    z-index: 3;
+    opacity: 1;
+}
+
+.settings-form > .header {
+    width: 100%;
+    height: 50px;
+    padding-left: 20px;
+
+    line-height: 50px;
+    color: var(--text-white);
+
+    background-color: var(--bg-blue);
+}
+
+.settings-form > .controls-panel {
+    padding: 30px;
 }
