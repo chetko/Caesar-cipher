@@ -1,0 +1,31 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto&subset=cyrillic,cyrillic-ext,latin-ext';
+
+/* Main */
+
+:root {
+    --bg-blue: #3877E6;
+    --bg-blue-light: #4A90E2;
+    --bg-grey-light: #F6F6F6;
+    --text-grey-dark: #333333;
+    --text-grey-light: #DCDCDC;
+    --text-white: #FFFFFF;    
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    display: flex;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 100%;
+}
